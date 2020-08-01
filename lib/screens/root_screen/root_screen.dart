@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_project/screens/home/home_screen.dart';
 import 'package:todo_project/screens/login/login_screen.dart';
 import 'package:todo_project/utils/load_screen.dart';
 
@@ -54,7 +55,11 @@ class _RootScreenState extends State<RootScreen> {
         return LoginScreen();
         break;
       case AuthStatus.LOGGED_IN:
-        return Container();
+        if(_userId.length > 0 && _userId != null) {
+          return HomeScreen(userId: _userId);
+        } else {
+          return LoadScreen();
+        }
         break;
       default: 
         return Container();

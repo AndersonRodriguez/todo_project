@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (userId.length > 0 && userId != null) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
+            MaterialPageRoute(builder: (context) => HomeScreen(userId: userId)),
           );
         }
       } catch (error) {
